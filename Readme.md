@@ -15,10 +15,10 @@ markup(4, 7, el, 'b');
 ```
 
 ## Tests
-
+```
   $ duo test.js > build.js
   $ duo-test
-
+```
 ## License
 
   The MIT License (MIT)
