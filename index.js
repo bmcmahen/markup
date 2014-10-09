@@ -10,7 +10,7 @@ var iterator = require('matthewmueller/dom-iterator');
  * @return {Range}
  */
 
-module.exports = function (from, to, el, tagName) {
+module.exports = function (from, to, el, tagName, attrs) {
 
   var length = 0;
   var range = document.createRange();
@@ -33,6 +33,16 @@ module.exports = function (from, to, el, tagName) {
   }
 
   var node = document.createElement(tagName);
+
+  // set optional attributes
+  if (attrs) {
+    for (var attr in attrs) {
+      if (attrs.hasOwnProperty(attr)) {
+        node.setAttribute(attr, attrs[attr]);
+      }
+    }
+  }
+
   range.surroundContents(node);
   return node;
 };

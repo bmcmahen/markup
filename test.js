@@ -33,4 +33,9 @@ describe('markup', function () {
     expect(el.href).to.be('http://bacon.com/');
   });
 
+  it('should set optional attributes', function () {
+    var el = markup(10, 15, this.el, 'a', { href: 'http://benmcmahen.com/' });
+    expect(el.href).to.be('http://benmcmahen.com/');
+  });
+
 });
