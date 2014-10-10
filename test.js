@@ -6,7 +6,7 @@ describe('markup', function () {
 
 
   beforeEach(function(){
-    var txt = 'aristotle would absolutely love hamburgers';
+    var txt = this.txt = 'aristotle would absolutely love hamburgers';
     this.el = document.createElement('p');
     this.el.innerText = txt;
   });
@@ -36,6 +36,13 @@ describe('markup', function () {
   it('should set optional attributes', function () {
     var el = markup(10, 15, this.el, 'a', { href: 'http://benmcmahen.com/' });
     expect(el.href).to.be('http://benmcmahen.com/');
+  });
+
+  it('should be able to set different tagname to same indexes', function () {
+    this.el.innerHTML = 'hello world';
+    markup(0, 11, this.el, 'b');
+    var el = markup(0, 11, this.el, 'i');
+    expect(el).to.be.ok();
   });
 
 });

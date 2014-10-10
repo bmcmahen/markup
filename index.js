@@ -14,22 +14,33 @@ module.exports = function (from, to, el, tagName, attrs) {
 
   var length = 0;
   var range = document.createRange();
-  var it = iterator(el).select(Node.TEXT_NODE).revisit(false);
+  var it = iterator(el.firstChild, el).select(Node.TEXT_NODE).revisit(false);
   var next;
   var startindex;
 
-  while (next = it.next()) {
+  function parse(n) {
     var olen = length;
-    length += next.textContent.length;
+    var txtLen = n.textContent.length;
+    if (!txtLen) return;
+
+    length += txtLen;
     if (!startindex && (length >= from)) {
       startindex = true;
-      range.setStart(next, from - olen);
+      range.setStart(n, from - olen);
     }
 
     if (length >= to) {
-      range.setEnd(next, to - olen);
-      break;
+      range.setEnd(n, to - olen);
+      return false;
     }
+
+    return true;
+  }
+
+  parse(el.firstChild);
+
+  while (next = it.next()) {
+    if (!parse(next)) break;
   }
 
   var node = document.createElement(tagName);
