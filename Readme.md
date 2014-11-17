@@ -5,7 +5,7 @@
 
 ## Installation
 
-  Install with [Duo(1)](http://duojs.org):
+  Install with [Duo(1)](http://duojs.org) or NPM:
 
 ```javascript
 var markup = require('bmcmahen/markup');
@@ -14,6 +14,8 @@ p.innerText = 'make me bold';
 markup(4, 7, el, 'b');
 ```
 
+  $npm install bmcmahen-markup
+  
 ## Tests
 ```
   $ duo test.js > build.js

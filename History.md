@@ -6,3 +6,6 @@
 
 ## 0.3.0
 - * fix bug which prevented tags with same indexes from being added
+
+## 1.0.0
+- * add package.json

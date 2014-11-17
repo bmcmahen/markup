@@ -1,4 +1,8 @@
-var iterator = require('matthewmueller/dom-iterator');
+/**
+ * Module dependencies
+ */
+
+var iterator = require('dom-iterator');
 
 /**
  * Add markup to an element
