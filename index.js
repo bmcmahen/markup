@@ -58,6 +58,6 @@ module.exports = function (from, to, el, tagName, attrs) {
     }
   }
 
-  range.surroundContents(node);
+  try { range.surroundContents(node); } catch(err) {}
   return node;
 };

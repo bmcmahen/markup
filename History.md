@@ -9,3 +9,6 @@
 
 ## 1.0.0
 - * add package.json
+
+## 1.0.1
+- * weeeird safari fix. hopefully just temporary!
